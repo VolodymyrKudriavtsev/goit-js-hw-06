@@ -23,3 +23,16 @@ console.log(listElement);
 
 const list = document.querySelector(".gallery");
 list.insertAdjacentHTML("afterbegin", listElement.join(""));
+
+list.style.listStyle = "none";
+list.style.padding = "0";
+list.style.margin = "0";
+list.style.display = "flex";
+list.style.gap = "10px";
+// list.style.justifyContent = "space-between";
+list.children.style.width = "100% / 3";
+
+// 	listStyle: "none",
+// 	padding: "0",
+// 	margin: "0",
+// };

@@ -6,6 +6,5 @@ input.addEventListener("input", e => {
         output.textContent = e.currentTarget.value;
     } else {
         output.textContent = 'Anonymous';
-    }
-	
+    }	
 });

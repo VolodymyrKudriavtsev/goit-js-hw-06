@@ -14,7 +14,7 @@ const images = [
 ];
 
 const makeImageMarkup = ({ url, alt }) => {
-	return `<li><img url = "${url}" alt = "${alt}"></li>`;
+	return `<li><img src="${url}" alt="${alt}" width=370></li>`;
 };
 
 const listElement = images.map(image => makeImageMarkup(image));
@@ -29,3 +29,4 @@ list.style.padding = "0";
 list.style.margin = "0";
 list.style.display = "flex";
 list.style.gap = "10px";
+

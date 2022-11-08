@@ -1,6 +1,10 @@
-const fontSizeControl = document.querySelector('#font-size-control');
-const spanText = document.querySelector('#text');
+const refs = {
+    fontSizeControl: document.querySelector('#font-size-control'),
+    spanText: document.querySelector('#text'),
+};
 
-fontSizeControl.addEventListener('input', (e) => {
-    spanText.style.fontSize = `${e.currentTarget.value}px`;
-})
+const onRangescroll = e => {
+    refs.spanText.style.fontSize = `${e.currentTarget.value}px`;
+};
+
+refs.fontSizeControl.addEventListener('input', onRangescroll);

@@ -1,10 +1,15 @@
-const input = document.querySelector("#name-input");
-const output = document.querySelector("#name-output");
+const refs = {
+    input: document.querySelector("#name-input"),
+    output: document.querySelector("#name-output"),
+    
+};
 
-input.addEventListener("input", e => {
+const onInputTextEnter = (e) => {
     if (e.currentTarget.value !== '') {
-        output.textContent = e.currentTarget.value;
+        refs.output.textContent = e.currentTarget.value;
     } else {
-        output.textContent = 'Anonymous';
-    }	
-});
+        refs.output.textContent = 'Anonymous';
+    }
+}
+
+refs.input.addEventListener("input", onInputTextEnter);

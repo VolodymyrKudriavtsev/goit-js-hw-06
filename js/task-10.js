@@ -2,26 +2,34 @@ function getRandomHexColor() {
 	return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-const refs = {
-	divBoxes: document.querySelector("#boxes"),
-};
-
-// !-----генерация массива дивов
-const boxes = [];
-function createBoxes(amount) {
+function createBoxes (amount) {
+	const divsArrey = [];
+	let size = 20;
 	for (let i = 0; i < amount; i += 1) {
 		const box = () => {
-			return `<div style='background-color: ${getRandomHexColor()}' width=30 height=30></div>`;
+			size += 10;
+			return `<div style='background-color: ${getRandomHexColor()}; width: ${size}px; height: ${size}px'></div>`;
 		};
 
-		boxes.push(box());
+		divsArrey.push(box());
 	}
+	
+	console.log(divsArrey);
+	refs.divBoxes.insertAdjacentHTML("afterbegin", divsArrey.join(""));
+};
 
-	// ? перебрать массив с помощью map и изменить свойства W & H !!!
-}
+const refs = {
+	divBoxes: document.querySelector("#boxes"),
+	createBtn: document.querySelector("[data-create]"),
+	destroyBtn: document.querySelector("[data-destroy]"),
+	inputValue: document.querySelector("input"),
+	amount: 0,
+};
 
-console.log(boxes);
+const onInputChange = (e) => refs.amount = Number(e.currentTarget.value);
+const onCreateBtnClick = () => createBoxes(refs.amount);
+const onDestroyBtnClick = () => refs.divBoxes.innerHTML = '';
 
-// createBoxes(5);
-
-// refs.divBoxes.append(box);
+refs.inputValue.addEventListener("change", onInputChange);
+refs.createBtn.addEventListener("click", onCreateBtnClick);
+refs.destroyBtn.addEventListener("click", onDestroyBtnClick);

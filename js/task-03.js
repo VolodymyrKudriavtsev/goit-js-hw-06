@@ -19,8 +19,6 @@ const makeImageMarkup = ({ url, alt }) => {
 
 const listElement = images.map(image => makeImageMarkup(image));
 
-console.log(listElement);
-
 const list = document.querySelector(".gallery");
 list.insertAdjacentHTML("afterbegin", listElement.join(""));
 

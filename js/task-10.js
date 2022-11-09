@@ -14,7 +14,6 @@ function createBoxes (amount) {
 		divsArrey.push(box());
 	}
 	
-	console.log(divsArrey);
 	refs.divBoxes.insertAdjacentHTML("afterbegin", divsArrey.join(""));
 };
 

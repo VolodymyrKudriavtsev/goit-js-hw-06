@@ -10,7 +10,7 @@ function createBoxes(amount) {
 		widthSize += 10;
 		heightSize += 10;
 		divsArrey.push(
-			`<div style='background-color: ${getRandomHexColor()}; width: ${widthSize}px; height: ${heightSize}px'></div>`,
+			`<div style='background-color: ${getRandomHexColor()}; width: ${widthSize}px; height: ${heightSize}px; border: 1px solid #000000'></div>`,
 		);
 	}
 	refs.divBoxes.insertAdjacentHTML("beforeend", divsArrey.join(""));

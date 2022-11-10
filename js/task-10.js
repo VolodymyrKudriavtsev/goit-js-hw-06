@@ -2,14 +2,18 @@ function getRandomHexColor() {
 	return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
+let divsArrey = [];
+let widthSize = 20;
+let heightSize = 20;
 function createBoxes(amount) {
-	const divsArrey = [];
-	let size = 20;
 	for (let i = 0; i < amount; i += 1) {
-		size += 10;
-		divsArrey.push(`<div style='background-color: ${getRandomHexColor()}; width: ${size}px; height: ${size}px'></div>`);
+		widthSize += 10;
+		heightSize += 10;
+		divsArrey.push(
+			`<div style='background-color: ${getRandomHexColor()}; width: ${widthSize}px; height: ${heightSize}px'></div>`,
+		);
 	}
-	refs.divBoxes.insertAdjacentHTML("afterbegin", divsArrey.join(""));
+	refs.divBoxes.insertAdjacentHTML("beforeend", divsArrey.join(""));
 }
 
 const refs = {
@@ -21,8 +25,15 @@ const refs = {
 };
 
 const onInputChange = e => (refs.amount = Number(e.currentTarget.value));
-const onCreateBtnClick = () => createBoxes(refs.amount);
-const onDestroyBtnClick = () => (refs.divBoxes.innerHTML = "");
+const onCreateBtnClick = () => {
+	createBoxes(refs.amount);
+	divsArrey = [];
+};
+const onDestroyBtnClick = () => {
+	refs.divBoxes.innerHTML = "";
+	widthSize = 20;
+	heightSize = 20;
+};
 
 refs.inputValue.addEventListener("change", onInputChange);
 refs.createBtn.addEventListener("click", onCreateBtnClick);

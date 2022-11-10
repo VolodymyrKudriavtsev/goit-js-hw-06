@@ -2,10 +2,10 @@ function getRandomHexColor() {
 	return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-let divsArrey = [];
 let widthSize = 20;
 let heightSize = 20;
 function createBoxes(amount) {
+	let divsArrey = [];
 	for (let i = 0; i < amount; i += 1) {
 		widthSize += 10;
 		heightSize += 10;
@@ -27,7 +27,6 @@ const refs = {
 const onInputChange = e => (refs.amount = Number(e.currentTarget.value));
 const onCreateBtnClick = () => {
 	createBoxes(refs.amount);
-	divsArrey = [];
 };
 const onDestroyBtnClick = () => {
 	refs.divBoxes.innerHTML = "";
